@@ -1,0 +1,59 @@
+-- MySQL dump 10.13  Distrib 5.6.22, for osx10.8 (x86_64)
+--
+-- Host: 10.3.5.57    Database: hncom
+-- ------------------------------------------------------
+-- Server version	5.6.33-0ubuntu0.14.04.1
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `teams_consultants`
+--
+
+DROP TABLE IF EXISTS `teams_consultants`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `teams_consultants` (
+  `team_consultant_id` int(11) NOT NULL AUTO_INCREMENT,
+  `consultant_id` int(11) DEFAULT NULL,
+  `team_id` int(11) DEFAULT NULL,
+  `team_consultant_added` datetime DEFAULT CURRENT_TIMESTAMP,
+  `team_consultant_deleted` datetime DEFAULT NULL,
+  PRIMARY KEY (`team_consultant_id`),
+  UNIQUE KEY `teams_consultans-id_UNIQUE` (`team_consultant_id`),
+  KEY `fk_team_id_idx` (`team_id`),
+  KEY `fk_consultant_id_idx` (`consultant_id`),
+  CONSTRAINT `fk_consultant_id` FOREIGN KEY (`consultant_id`) REFERENCES `consultants` (`consultant_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_team_id` FOREIGN KEY (`team_id`) REFERENCES `teams` (`team_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `teams_consultants`
+--
+
+LOCK TABLES `teams_consultants` WRITE;
+/*!40000 ALTER TABLE `teams_consultants` DISABLE KEYS */;
+INSERT INTO `teams_consultants` VALUES (6,21,1,'2016-05-24 11:37:18',NULL),(10,272,1,'2016-05-24 11:40:41',NULL),(11,70,1,'2016-05-24 11:40:47','2016-05-26 13:13:51'),(12,73,1,'2016-05-24 11:40:51',NULL),(13,161,1,'2016-05-24 11:40:55','2016-05-26 13:13:54'),(14,120,1,'2016-05-24 11:40:59',NULL),(15,236,1,'2016-05-24 11:41:04',NULL),(16,285,1,'2016-05-24 11:41:08','2016-05-26 13:14:00'),(17,396,1,'2016-05-24 11:41:15',NULL),(18,498,1,'2016-05-24 11:41:20','2016-05-26 13:14:03'),(20,9,1,'2016-05-24 11:41:27',NULL),(21,1,3,'2016-05-24 11:43:23',NULL),(22,9,3,'2016-05-24 11:43:25',NULL),(23,322,3,'2016-05-24 11:43:27',NULL),(24,273,3,'2016-05-24 11:43:32',NULL),(25,496,3,'2016-05-24 11:43:36',NULL),(26,5,2,'2016-05-24 12:52:39','2016-05-26 13:18:31'),(27,6,2,'2016-05-24 12:52:43',NULL),(28,9,2,'2016-05-24 12:52:45',NULL),(29,30,2,'2016-05-24 12:54:15','2016-05-26 13:18:38'),(30,90,2,'2016-05-24 12:54:22',NULL),(31,10,2,'2016-05-25 09:10:33',NULL),(32,53,2,'2016-05-25 09:10:37',NULL),(33,29,2,'2016-05-25 09:10:46',NULL),(34,2,2,'2016-05-25 09:24:56',NULL),(35,92,1,'2016-05-25 12:47:21','2016-05-26 13:13:27'),(37,1,1,'2016-05-26 13:13:36',NULL);
+/*!40000 ALTER TABLE `teams_consultants` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2016-09-28 16:35:35
